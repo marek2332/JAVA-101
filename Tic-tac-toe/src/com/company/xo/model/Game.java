@@ -1,13 +1,44 @@
 package com.company.xo.model;
 
-public class Game {
+public class Game   {
 
-    public Player player1;
+    private final Player player1;
 
-    public Player player2;
+    private final Player player2;
 
-    public Field field;
+    private final Field field;
 
-    public String name;
+    private final String name;
+
+    public Game(final GameBuilder gameBuilder) {
+        this.player1 = gameBuilder.getPlayer1();
+        this.player2 = gameBuilder.getPlayer2();
+        this.field = gameBuilder.getField();
+        this.name = gameBuilder.getName();
+    }
+
+    public Player getPlayer1() {
+        return this.player1;
+    }
+
+    public Player getPlayer2() {
+        return this.player2;
+    }
+
+    public Field getField() {
+        return field;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+ 
+
+
+
+
 
 }
+
+

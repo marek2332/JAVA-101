@@ -1,31 +1,26 @@
 package com.company.xo.controllers;
 
 import com.company.xo.model.Field;
+import com.company.xo.model.Figure;
 import com.company.xo.model.Point;
+import com.company.xo.model.exceptions.AlreadyOccupiedException;
+import com.company.xo.model.exceptions.InvalidPointException;
 
 public class MoveController {
 
-    public boolean applyFigure(final Field field,
+    public static void applyFigure(final Field field,
                                final Point point,
-                               final String figure) {
-        
-        final int maxSize = field.getSize();
-        if (checkCoordinate(point.x, maxSize) && checkCoordinate(point.y, maxSize) && field.getFigure(point) == null){
+                               final Figure figure)
+            throws InvalidPointException,AlreadyOccupiedException
 
-            field.setFigure(point, figure);
-            return true;
+    {
+
+        if (field.getFigure(point) != null){
+            throw new AlreadyOccupiedException();
         }
-        return false;
 
-        
+        field.setFigure(point, figure);
+
     }
 
-    
-    private  boolean checkCoordinate(final int coordinate, final int maxSize) {
-        if (coordinate >= 0 &&  coordinate < maxSize) {
-            return true;
-        }
-        return false;
-    }
-    
 }
