@@ -1,25 +1,55 @@
 package com.company.xo.model;
 
+import com.company.xo.model.exceptions.InvalidPointException;
+
+
+
 public class Field {
 
-    public String[][] figures = new String[3][3];
+    private static final int MIN_COORDINATE = 0;
 
-    public int getSize() {
+    private Figure[][] field;
 
-        return figures.length;
+    private final int fieledSize;
+
+    public Field(int filedSize)
+    {
+        this.fieledSize = filedSize;
+        field = new Figure[filedSize][filedSize];
+    }
+
+    public int getSize()
+    {
+
+        return fieledSize;
 
     }
 
-    public String getFigure(final Point point) {
-
-        return figures[point.x][point.y];
+    public Figure getFigure(final Point point)
+            throws InvalidPointException
+    {
+        if(!checkCoordinate(point.getX(), fieledSize) || !checkCoordinate(point.getY(), fieledSize))
+        {
+            throw new InvalidPointException();
+        }
+        return field[point.getX()][point.getY()];
 
     }
 
-    public void setFigure(final Point point, final String figure) {
+    public void setFigure(final Point point, final Figure figure)
+            throws InvalidPointException
 
-        figures[point.x][point.y] = figure;
+    {
+        if(!checkCoordinate(point.getX(), fieledSize) || !checkCoordinate(point.getY(), fieledSize))
+        {
+            throw new InvalidPointException();
+        }
+        field[point.getX()][point.getY()] = figure;
+    }
 
+    private static boolean checkCoordinate(final int coordinate, final int maxSize)
+    {
+            return coordinate >= 0 &&  coordinate < maxSize;
     }
 
 }
