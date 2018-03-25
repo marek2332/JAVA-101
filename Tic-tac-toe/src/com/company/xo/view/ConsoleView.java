@@ -18,7 +18,7 @@ public class ConsoleView implements ICoordinateGetter{
             throws InvalidPointException
     {
         final StringBuilder fieldBuilder = new StringBuilder();
-        for (int x = 0; x < field.getSize(); x++) {
+        for (int x = 0; x < 3; x++) {
             if (x != 0)
                 generateSeparator(fieldBuilder);
             generateLine(field, x, fieldBuilder);
@@ -31,7 +31,7 @@ public class ConsoleView implements ICoordinateGetter{
                       final StringBuilder sb)
             throws InvalidPointException {
         for (int y = 0; y < field.getSize(); y++) {
-            if (y != 0)
+            if (y != 0 && y <= 2)
                 sb.append("|");
             sb.append(" ");
             final Figure figure;
