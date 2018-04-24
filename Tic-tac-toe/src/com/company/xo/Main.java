@@ -6,8 +6,6 @@ import com.company.xo.model.*;
 import com.company.xo.view.*;
 
 
-import java.util.stream.IntStream;
-
 public class Main {
 
         public static void main(String... args) throws Exception {
@@ -20,7 +18,7 @@ public class Main {
 
 
             for (int i = 0; i < 9; i++) {
-                Thread.sleep(4000);
+                Thread.sleep(2000);
                 final Point p;
                 if (i % 2 == 0)
                     p = ai.getMoveCoordinate(field);
