@@ -69,35 +69,7 @@ public class AICoordinateGetter implements ICoordinateGetter {
     private Point analyzeField(Field field) throws InvalidPointException{
         makePointArray();
         int index = checkField(field);
-//        switch (index){
-//            case 0:
-//                return points.get(0);
-//            case 1:
-//                return points.get(3);
-//
-//            case 2:
-//                return points.get(7);
-//
-//            case 3:
-//                return points.get(1);
-//
-//            case 4:
-//                return points.get(2);
-//
-//            case 6:
-//                return points.get(4);
-//
-//            case 7:
-//                return points.get(8);
-//
-//            case 8:
-//                return points.get(7);
-//
-//
-//            default:
-//                return randomCoordinateGetter.getMoveCoordinate(field);
-//
-//        }
+
         if(index == 0 && checkNull(field,0))return points.get(0);
         if(index == 1 && checkNull(field,3))return points.get(3);
         if(index == 2 && checkNull(field,7))return points.get(7);
@@ -126,9 +98,5 @@ public class AICoordinateGetter implements ICoordinateGetter {
 
 
     }
-/*
-TODO граф всіх можливих ходів, метод який перевіряє поінти і передає на верх,
-створити додатково масив з індексами і видаляти індекси кожного разу коли був зроблений хід
-якшо індекс 0 певний то в проц співвідшонені вернути поле, переробити алгоритм + зробити провірку
- */
+
 
